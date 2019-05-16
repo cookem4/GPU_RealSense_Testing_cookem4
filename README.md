@@ -1,9 +1,9 @@
 # GPU_RealSense_Testing_cookem4
-###A variety of files exploring the cause for latency seen with interfacing the Intel RealSense D435 and the Nvidia Jetson TX2###
+### A variety of files exploring the cause for latency seen with interfacing the Intel RealSense D435 and the Nvidia Jetson TX2 ###
 
-##Summary of Findings:##
+## Summary of Findings: ##
 The results of performing tests with these projects are as follows:
-####Main Findings:####
+#### Main Findings: ####
 * CUDA works properly on the board
 * A cuda program was created to multiply two matrices that is able to run much faster on the GPU than the CPU. When running on the GPU the device was able to reach a full 99% load while with all other openCV applications it only goes around 50%
 * Display of the UI in openCV takes about 10-10ms which can prevent fast framerates
@@ -16,10 +16,10 @@ An openCV program with GPU acceleration that performs hough edge detection (a fa
 * An openGL application was able to display video feed at close to expected rate
 * It might be thought that pre-processing on the realsense camera could cause the slow frame rates seen in openCV. However, the frames can be received fast with openGL
 
-####Summary:####
+#### Summary: ####
 Receiving frames from the Realsense camera in openCV is the main bottleneck to increasing frequency and with no processing it can only run at 10Hz. Displaying the UI window in openCV also causes a drop in frequency as it can take up to 50ms, averaging around 20ms. The GPU has varying performance with openCV that is completely dependent on the nature of the calculations of the image manipulation function. The performance increase of the GPU vs the CPU in openCV is nowhere near as effective compared to running pure matrix operations with CUDA. 
 
-####There are a few options:####
+#### There are a few options: ####
 * Find a solution that uses purely openGL perhaps creating custom CUDA code for some basic image operations
 Create a solution that combines openCV processing with openGL display
 * Look at using a different computer vision library that takes advantage of the graphics card more effectively
