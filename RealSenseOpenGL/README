@@ -1,0 +1,1 @@
+This project is used to open depth and RGB streams on the RealSense camera using openGL to show that the device is able to stream at the configured rates. This program with openGL proves that openCV is significantly slower at reading the camera streams.

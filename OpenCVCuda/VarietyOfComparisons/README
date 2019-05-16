@@ -1,0 +1,1 @@
+This project is used to perform comparisons between openCV image manipulation operations on the CPU and GPU using the openCV cuda module.
